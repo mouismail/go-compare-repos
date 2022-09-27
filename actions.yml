@@ -1,0 +1,8 @@
+name: GH Action in Go
+description: "A GitHub Action written in Go"
+runs:
+  using: composite
+  steps:
+    - name: Hello world
+      run: go run main.go
+      shell: bash
