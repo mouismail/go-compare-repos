@@ -25,4 +25,4 @@ jobs:
       run: go test -v ./...
 
     - name: run
-      uses: mouismail/go-action-runner@v0.2
+      uses: mouismail/go-action-runner@v0.3
