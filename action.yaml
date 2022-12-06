@@ -3,6 +3,6 @@ description: "A GitHub Action written in Go"
 runs:
   using: composite
   steps:
-    - name: Hello world
+    - name: Compare
       run: go run main.go
       shell: bash
