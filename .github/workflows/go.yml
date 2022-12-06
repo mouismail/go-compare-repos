@@ -14,7 +14,7 @@ jobs:
         name: Compare Repos
         uses: ./
         env:
-          GITHUB_TOKEN: ${{ secrets.GHEC_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.Migration.GHEC_ACCESS_TOKEN }}
         with:
           org: "pernod-ricard-mmpj"
           file: ./source.json
