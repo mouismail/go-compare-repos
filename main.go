@@ -25,7 +25,7 @@ type Repo struct {
 func CompareRepos(org string, file string) error {
 	// Create a new OAuth client using the GITHUB_TOKEN secret.
 	ts := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: os.Getenv("GITHUB_TOKEN")},
+		&oauth2.Token{AccessToken: os.Getenv("GHEC_ACCESS_TOKEN")},
 	)
 	tc := oauth2.NewClient(context.Background(), ts)
 	client := github.NewClient(tc)
