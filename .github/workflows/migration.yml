@@ -1,6 +1,6 @@
 name: Run Migration
 
-on: [push]
+on: workflow_dispatch
 
 steps:
   # Check out the code and install dependencies

@@ -1,20 +1,30 @@
 name: Compare Repos
 
 on:
-  issues:
-    types: [labeled]
-    
+  workflow_dispatch
 
 jobs:
   compare:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - if : github.event.label.name == 'kpi'
-        name: Compare Repos
-        uses: ./
-        env:
-          GITHUB_TOKEN: ${{ secrets.Migration.GHEC_ACCESS_TOKEN }}
+      - name: Set up Go
+        uses: actions/setup-go@v1
         with:
-          org: "pernod-ricard-mmpj"
-          file: ./source.json
+          go-version: 1.x
+      - name: Install dependencies
+        run: go get -v -t -d ./...
+      - name: Build
+        run: go build -v .
+        env:
+          GH_ORG_NAME: ${{ secrets.GH_ORG_NAME }}
+          GHEC_ACCESS_TOKEN: ${{ secrets.GHEC_ACCESS_TOKEN }}
+          GITLAB_ACCESS_TOKEN: ${{ secrets.GITLAB_ACCESS_TOKEN }}
+          GL_PROJECT_ID: ${{ secrets.GL_PROJECT_ID }}
+      - name: Run
+        run: go run main.go
+        env:
+          GH_ORG_NAME: ${{ secrets.GH_ORG_NAME }}
+          GHEC_ACCESS_TOKEN: ${{ secrets.GHEC_ACCESS_TOKEN }}
+          GITLAB_ACCESS_TOKEN: ${{ secrets.GITLAB_ACCESS_TOKEN }}
+          GL_PROJECT_ID: ${{ secrets.GL_PROJECT_ID }}
