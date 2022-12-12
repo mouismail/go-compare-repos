@@ -49,7 +49,7 @@ func main() {
 		}
 	}
 	//readme.Update("stats.md", t.String())
-	updateStatus := readme.UpdateGitHubRepoFile([]byte(t.String()), "go-action-runner", "mouismail", "stats.md")
+	updateStatus := readme.UpdateGitHubRepoFile([]byte(t.String()), os.Getenv("GH_STATS_REPO_NAME"), os.Getenv("GH_STATS_ORG_NAME"), "stats.md")
 	exists = false
 	fmt.Printf("The migration status has been updated on Stats file successfully with status %s.", updateStatus)
 }
