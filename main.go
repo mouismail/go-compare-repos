@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"go-action-runner/pkg/readme"
-	"log"
 	"os"
 	"strconv"
 
@@ -49,7 +48,8 @@ func main() {
 			t.AddRow([]string{githubRepo.Name, "<center>:x:</center>", org, ":white_check_mark:", projectID})
 		}
 	}
-	readme.Update("stats.md", t.String())
-	log.Fatal("The migration status has been updated on Stats file successfully.")
+	//readme.Update("stats.md", t.String())
+	updateStatus := readme.UpdateGitHubRepoFile([]byte(t.String()), "go-action-runner", "mouismail", "stats.md")
 	exists = false
+	fmt.Printf("The migration status has been updated on Stats file successfully with status %s.", updateStatus)
 }
