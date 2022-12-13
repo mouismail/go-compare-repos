@@ -2,40 +2,14 @@ package main
 
 import (
 	"fmt"
-	"go-action-runner/pkg/readme"
 	"os"
 	"strconv"
 
 	"go-action-runner/github"
 	"go-action-runner/gitlab"
+	"go-action-runner/pkg/readme"
 	"go-action-runner/pkg/stats"
 )
-
-// Repo TODO
-type Repo struct {
-	Name         string `json:"name"`
-	Platform     string `json:"platform"`
-	Organization string `json:"organization"`
-	Project      string `json:"project"`
-	Type         string `json:"type"`
-}
-
-type MigrationStatus struct {
-	Repo       string `json:"name"`
-	IsMigrated bool   `json:"bool"`
-}
-
-func NewMigrationStatus(repo string, isMigrated bool) *MigrationStatus {
-	return &MigrationStatus{
-		repo,
-		isMigrated,
-	}
-}
-
-func (m *MigrationStatus) AddMigrationStatus(repo string, isMigrated bool) {
-	m.Repo = repo
-	m.IsMigrated = isMigrated
-}
 
 func main() {
 	org := os.Getenv("GH_ORG_NAME")
