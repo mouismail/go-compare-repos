@@ -26,7 +26,7 @@ func main() {
 		fmt.Errorf("error occured during fetching GitLab Repos, %s", err)
 	}
 
-	t := stats.NewTable([]string{"Repo Name", "GitHub Org", "GitLab Project", "GitHub Status", "GitLab Status", "Migrated"})
+	t := stats.NewTable([]string{"Repo Name", "GitHub Org", "GitLab Project", "GitLab Status", "GitHub Status", "Migrated"})
 
 	for _, gitlabRepo := range gitlabRepos {
 		searched := false
