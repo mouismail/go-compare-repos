@@ -22,7 +22,6 @@ func (t *Table) AddRow(row []string) {
 	t.rows = append(t.rows, row)
 }
 
-// String returns the markdown representation of the table.
 func (t *Table) String() string {
 	var b bytes.Buffer
 
