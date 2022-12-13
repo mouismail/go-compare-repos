@@ -31,7 +31,7 @@ jobs:
       - name: Export output to GitHub issue
         uses: peter-evans/create-issue-from-file@v4
         with:
-          title: Migration Report
+          title: Migration Report ${{ env.TIME }}
           labels: migration-report
           content-filepath: stats.md
           assignees: mouismail
