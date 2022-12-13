@@ -1,0 +1,3 @@
+### Migration Stats Report
+
+{{ .stats }}
