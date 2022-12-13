@@ -28,17 +28,15 @@ jobs:
           GHEC_ACCESS_TOKEN: ${{ secrets.GHEC_ACCESS_TOKEN }}
           GITLAB_ACCESS_TOKEN: ${{ secrets.GITLAB_ACCESS_TOKEN }}
           GL_PROJECT_ID: ${{ secrets.GL_PROJECT_ID }}
-  pull-request:
-    runs-on: ubuntu-latest
-    needs: build-and-run
-    steps:      
-      - name: Export Stats
-        run: export STATS=$(cat stats.md)
-      # - name: create pull request
-      #   run: gh pr create -B main -H develop --title 'Update stats' --body 'Update stats file with latest data from GitHub, and GitLab'
-      #   env:
-      #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
+      - name: Export output to GitHub issue
+        uses: peter-evans/create-or-update-issue@v1
         with:
-          body: ${{ steps.template.outputs.result }}
+          title: Migration Report
+          labels: migration-report
+          body: |
+            The output of the command is:
+            ```
+            ${{ steps.run-command.outputs.stdout }}
+            ```
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
