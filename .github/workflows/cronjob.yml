@@ -29,7 +29,7 @@ jobs:
           GITLAB_ACCESS_TOKEN: ${{ secrets.GITLAB_ACCESS_TOKEN }}
           GL_PROJECT_ID: ${{ secrets.GL_PROJECT_ID }}
       - name: Export output to GitHub issue
-        uses: peter-evans/create-or-update-issue@v1
+        uses: peter-evans/create-or-update-issue@v2
         with:
           title: Migration Report
           labels: migration-report
