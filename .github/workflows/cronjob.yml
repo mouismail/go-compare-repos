@@ -37,14 +37,6 @@ jobs:
         run: gh pr create -B main -H develop --title 'Update stats' --body 'Update stats file with latest data from GitHub, and GitLab'
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Render template
-        id: template
-        uses: chuhlomin/render-template@v1.4
-        with:
-          template: .github/templates/pull-request-template.md
-          vars: |
-            stats: ${{ STATS }}
-
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
