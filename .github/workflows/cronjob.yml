@@ -31,7 +31,7 @@ jobs:
   pull-request:
     runs-on: ubuntu-latest
     steps:      
-      - uses: actions/checkout@v2
+      - name: Export Stats
         run: export STATS=$(cat stats.md)
       - name: create pull request
         run: gh pr create -B main -H develop --title 'Update stats' --body 'Update stats file with latest data from GitHub, and GitLab'
