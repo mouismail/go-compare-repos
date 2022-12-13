@@ -12,14 +12,6 @@ This repository contains a GitHub Action that compares repositories in GitHub wi
 
 ## Inputs
 
-### `go-version`
-
-**Required** The version of Go to use. Default `"1.19"`.
-
-### `go-command`
-
-**Required** The command to run. Default `"go build"`.
-
 ### Environment Variables
 
 - `GH_ORG_NAME` - The name of the GitHub organization
