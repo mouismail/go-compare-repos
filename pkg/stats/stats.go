@@ -7,40 +7,72 @@ import (
 
 type Table struct {
 	headers []string
-	rows    [][]string
+	rows    []TableRow
+}
+
+type TableRow struct {
+	GitHubRepo      string
+	GitHubOrg       string
+	GitLabRepo      string
+	GitLabProjectId string
+	IsExists        bool
+}
+
+func NewRow(repo, org, projectId string, isExist bool) *TableRow {
+	return &TableRow{
+		GitHubRepo:      repo,
+		GitHubOrg:       org,
+		GitLabRepo:      repo,
+		GitLabProjectId: projectId,
+		IsExists:        isExist,
+	}
 }
 
 func NewTable(headers []string) *Table {
 	return &Table{
 		headers: headers,
-		rows:    [][]string{},
+		rows:    []TableRow{},
 	}
 }
 
-// AddRow adds a row to the table.
-func (t *Table) AddRow(row []string) {
+func (t *Table) AddRow(row TableRow) {
 	t.rows = append(t.rows, row)
+}
+
+func (r *TableRow) AddRowContent(repo, org, projectId string, isExist bool) {
+	r.GitHubRepo = repo
+	r.GitLabRepo = repo
+	r.GitHubOrg = org
+	r.GitLabProjectId = projectId
+	r.IsExists = isExist
 }
 
 func (t *Table) String() string {
 	var b bytes.Buffer
 
-	// write headers
 	for _, h := range t.headers {
 		b.WriteString(fmt.Sprintf("| %s ", h))
 	}
 	b.WriteString("|\n")
 
-	// write separator
 	for range t.headers {
 		b.WriteString("| :---: ")
 	}
 	b.WriteString("|\n")
-
-	// write rows
+	
 	for _, r := range t.rows {
-		for _, c := range r {
-			b.WriteString(fmt.Sprintf("| %s ", c))
+
+		b.WriteString(fmt.Sprintf("| %s ", r.GitHubRepo))
+		b.WriteString(fmt.Sprintf("| %s ", r.GitHubOrg))
+		b.WriteString(fmt.Sprintf("| %s ", r.GitLabProjectId))
+		if r.IsExists {
+			b.WriteString(fmt.Sprintf("| :white_check_mark: "))
+			b.WriteString(fmt.Sprintf("| :white_check_mark: "))
+			b.WriteString(fmt.Sprintf("| :ok_hand: "))
+		} else {
+			b.WriteString(fmt.Sprintf("| :white_check_mark: "))
+			b.WriteString(fmt.Sprintf("| :x: "))
+			b.WriteString(fmt.Sprintf("| :thumbsdown: "))
 		}
 		b.WriteString("|\n")
 	}
