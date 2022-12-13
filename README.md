@@ -1,9 +1,10 @@
-# GitHub Action on Go
+# Migration to GitHub Repos count
 
 [![GitHub go.mod Go version of a Go module](https://img.shields.io/github/go-mod/go-version/gomods/athens.svg)](https://github.com/gomods/athens)
 [![GitHub license](https://img.shields.io/github/license/mouismail/go-action-runner.svg)](https://github.com/mouismail/go-action-runner/blob/main/LICENSE)
 [![Latest release](https://badgen.net/github/release/mouismail/go-action-runner)](https://github.com/mouismail/go-action-runner/releases)
 [![Github tag](https://badgen.net/github/tag/mouismail/go-action-runner)](https://github.com/mouismail/go-action-runner/tags/)
+![Repo Stats](https://github.com/mouismail/go-compare-repos/actions/workflows/cronjob.yml/badge.svg)
 
 ## Description
 
@@ -25,6 +26,8 @@ This repository contains a GitHub Action that compares repositories in GitHub wi
 - `GL_PROJECT_ID` - The ID of the GitLab project
 - `GHEC_ACCESS_TOKEN` - The access token for the GitHub Enterprise Cloud instance
 - `GITLAB_ACCESS_TOKEN` - The access token for the GitLab instance
+- `GH_STATS_REPO_NAME` - The repo where the stats file will be created
+- `GH_STATS_ORG_NAME` - The organization where the stats file will be created
 
 
 ## Development
