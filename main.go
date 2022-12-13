@@ -37,19 +37,20 @@ func main() {
 	var exists bool
 	exists = false
 	t := stats.NewTable([]string{"Repo Name", "GitHub", "GitHub Org", "GitLab", "GitLab Project"})
-	for _, githubRepo := range githubRepos {
-		for _, gitlabRepo := range gitlabRepos {
+	for _, gitlabRepo := range gitlabRepos {
+		for _, githubRepo := range githubRepos {
 			if githubRepo.Name == gitlabRepo.Name {
 				exists = true
 				t.AddRow([]string{githubRepo.Name, "<center>:white_check_mark:</center>", org, ":white_check_mark:", projectID})
 			}
 		}
 		if !exists {
-			t.AddRow([]string{githubRepo.Name, "<center>:x:</center>", org, ":white_check_mark:", projectID})
+			t.AddRow([]string{gitlabRepo.Name, "<center>:x:</center>", org, ":white_check_mark:", projectID})
 		}
 	}
-	//readme.Update("stats.md", t.String())
-	updateStatus := readme.UpdateGitHubRepoFile([]byte(t.String()), "go-action-runner", "mouismail", "stats.md")
+	readme.Update("stats.md", t.String())
+	// updateStatus := readme.UpdateGitHubRepoFile([]byte(t.String()), "go-action-runner", "mouismail", "stats.md")
 	exists = false
-	fmt.Printf("The migration status has been updated on Stats file successfully with status %s.", updateStatus)
+	// fmt.Printf("The migration status has been updated on Stats file successfully with status %s.", updateStatus)
+	fmt.Printf("The migration status has been updated on Stats file successfully")
 }
