@@ -1,4 +1,4 @@
-name: Compare Repos
+name: "MigrationStats"
 
 on:
   workflow_dispatch

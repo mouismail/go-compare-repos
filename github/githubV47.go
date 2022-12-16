@@ -16,7 +16,7 @@ import (
 	"github.com/gregjones/httpcache"
 	"golang.org/x/oauth2"
 
-	"go-action-runner/build"
+	"migrator/build"
 )
 
 // Config contains configuration for Github client

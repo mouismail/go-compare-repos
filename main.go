@@ -5,13 +5,16 @@ import (
 	"os"
 	"strconv"
 
-	"go-action-runner/github"
-	"go-action-runner/gitlab"
-	"go-action-runner/pkg/readme"
-	"go-action-runner/pkg/stats"
+	"migrator/cmd"
+	"migrator/github"
+	"migrator/gitlab"
+	"migrator/pkg/readme"
+	"migrator/pkg/stats"
 )
 
 func main() {
+	cmd.Execute()
+
 	org := os.Getenv("GH_ORG_NAME")
 	projectID := os.Getenv("GL_PROJECT_ID")
 	intProjectID, _ := strconv.Atoi(projectID)
