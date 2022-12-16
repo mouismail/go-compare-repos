@@ -4,10 +4,7 @@
 [![GitHub license](https://img.shields.io/github/license/mouismail/go-action-runner.svg?style=for-the-badge)](https://github.com/mouismail/go-action-runner/blob/main/LICENSE)
 ![GitHub tag checks state](https://img.shields.io/github/checks-status/mouismail/go-compare-repos/main?label=Github%20tag&logo=github&style=for-the-badge)
 
-[//]: # ([![Latest release]&#40;https://badgen.net/github/release/mouismail/go-action-runner?style=for-the-badge&logo=appveyor&#41;]&#40;https://github.com/mouismail/go-action-runner/releases&#41;)
-[//]: # (![GitHub tag checks state]&#40;https://img.shields.io/github/checks-status/mouismail/go-compare-repos/main?label=release&logo=github&style=for-the-badge&#41;)
-
-
+[//]: # ([![Latest release]&#40;https://badgen.net/github/release/mouismail/go-compare-repos?style=for-the-badge&logo=appveyor&#41;]&#40;https://github.com/mouismail/go-compare-repos/releases&#41;)
 
 ## Description
 
@@ -19,7 +16,7 @@ This repository contains a GitHub Action that compares repositories in GitHub wi
 
 - `GH_ORG_NAME` - The name of the GitHub organization
 - `GL_PROJECT_ID` - The ID of the GitLab project
-- `GHEC_ACCESS_TOKEN` - The access token for the GitHub Enterprise Cloud instance
+- `GITHUB_ACCESS_TOKEN` - The access token for the GitHub Enterprise Cloud instance
 - `GITLAB_ACCESS_TOKEN` - The access token for the GitLab instance
 - `GH_STATS_REPO_NAME` - The repo where the stats file will be created
 - `GH_STATS_ORG_NAME` - The organization where the stats file will be created
@@ -67,7 +64,7 @@ make run
 ```bash
 export GH_ORG_NAME=demo-org
 export GL_PROJECT_ID=123456
-export GHEC_ACCESS_TOKEN=gh_access_token
+export GITHUB_ACCESS_TOKEN=gh_access_token
 export GITLAB_ACCESS_TOKEN=gl_access_token
 ```
 
