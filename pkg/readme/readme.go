@@ -44,7 +44,7 @@ func Read(filePath string) (string, error) {
 func UpdateGitHubRepoFile(fileContents []byte, repo string, org string, filePath string) string {
 	ctx := context.Background()
 	ts := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: os.Getenv("GITHUB_ACCESS_TOKEN")},
+		&oauth2.Token{AccessToken: os.Getenv("GHEC_ACCESS_TOKEN")},
 	)
 	tc := oauth2.NewClient(ctx, ts)
 

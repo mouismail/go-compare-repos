@@ -18,14 +18,14 @@ jobs:
         run: go build -v .
         env:
           GH_ORG_NAME: ${{ secrets.GH_ORG_NAME }}
-          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+          GHEC_ACCESS_TOKEN: ${{ secrets.GHEC_ACCESS_TOKEN }}
           GITLAB_ACCESS_TOKEN: ${{ secrets.GITLAB_ACCESS_TOKEN }}
           GL_PROJECT_ID: ${{ secrets.GL_PROJECT_ID }}
       - name: Run
         run: go run main.go
         env:
           GH_ORG_NAME: ${{ secrets.GH_ORG_NAME }}
-          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+          GHEC_ACCESS_TOKEN: ${{ secrets.GHEC_ACCESS_TOKEN }}
           GITLAB_ACCESS_TOKEN: ${{ secrets.GITLAB_ACCESS_TOKEN }}
           GL_PROJECT_ID: ${{ secrets.GL_PROJECT_ID }}
       - name: Export output to GitHub issue

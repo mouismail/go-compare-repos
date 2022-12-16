@@ -16,7 +16,7 @@ This repository contains a GitHub Action that compares repositories in GitHub wi
 
 - `GH_ORG_NAME` - The name of the GitHub organization
 - `GL_PROJECT_ID` - The ID of the GitLab project
-- `GITHUB_ACCESS_TOKEN` - The access token for the GitHub Enterprise Cloud instance
+- `GHEC_ACCESS_TOKEN` - The access token for the GitHub Enterprise Cloud instance
 - `GITLAB_ACCESS_TOKEN` - The access token for the GitLab instance
 - `GH_STATS_REPO_NAME` - The repo where the stats file will be created
 - `GH_STATS_ORG_NAME` - The organization where the stats file will be created
@@ -64,7 +64,7 @@ make run
 ```bash
 export GH_ORG_NAME=demo-org
 export GL_PROJECT_ID=123456
-export GITHUB_ACCESS_TOKEN=gh_access_token
+export GHEC_ACCESS_TOKEN=gh_access_token
 export GITLAB_ACCESS_TOKEN=gl_access_token
 ```
 

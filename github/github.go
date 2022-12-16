@@ -20,7 +20,7 @@ func GetRepos(org string) ([]Repo, error) {
 
 	url := fmt.Sprintf("https://api.github.com/orgs/%s/repos", org)
 	method := "GET"
-	var bearer = "Bearer " + os.Getenv("GITHUB_ACCESS_TOKEN")
+	var bearer = "Bearer " + os.Getenv("GHEC_ACCESS_TOKEN")
 
 	req, err := http.NewRequest(method, url, nil)
 	if err != nil {
