@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"migrator/pkg/readme"
 	"os"
 	"strconv"
@@ -21,12 +22,12 @@ func main() {
 
 	githubRepos, err := github.GetRepos(org)
 	if err != nil {
-		fmt.Errorf("error occured during fetching GitHub Repos, %s", err)
+		log.Fatalf("error occured during fetching GitHub Repos, %s", err)
 	}
 
 	gitlabRepos, err := gitlab.GetRepos(intProjectID)
 	if err != nil {
-		fmt.Errorf("error occured during fetching GitLab Repos, %s", err)
+		log.Fatalf("error occured during fetching GitLab Repos, %s", err)
 	}
 
 	t := stats.NewTable([]string{"Repo Name", "GitHub Org", "GitLab Project", "GitLab Status", "GitHub Status", "Migrated"})
@@ -46,7 +47,10 @@ func main() {
 			t.AddRow(*r)
 		}
 	}
-	readme.Update("stats.md", t.String())
+	err = readme.Update("stats.md", t.String())
+	if err != nil {
+		log.Fatalf("Error occurred during updating stats.md file %s", err)
+	}
 	//updateStatus := readme.UpdateGitHubRepoFile([]byte(t.String()), "go-action-runner", "mouismail", "stats.md")
 	//fmt.Println(updateStatus)
 	// fmt.Printf("The migration status has been updated on Stats file successfully with status %s.", updateStatus)
