@@ -39,13 +39,13 @@ func (t *Table) AddRow(row TableRow) {
 	t.rows = append(t.rows, row)
 }
 
-func (r *TableRow) AddRowContent(repo, org, projectId string, isExist bool) {
-	r.GitHubRepo = repo
-	r.GitLabRepo = repo
-	r.GitHubOrg = org
-	r.GitLabProjectId = projectId
-	r.IsExists = isExist
-}
+//func (r *TableRow) AddRowContent(repo, org, projectId string, isExist bool) {
+//	r.GitHubRepo = repo
+//	r.GitLabRepo = repo
+//	r.GitHubOrg = org
+//	r.GitLabProjectId = projectId
+//	r.IsExists = isExist
+//}
 
 func (t *Table) String() string {
 	var b bytes.Buffer
@@ -59,7 +59,7 @@ func (t *Table) String() string {
 		b.WriteString("| :---: ")
 	}
 	b.WriteString("|\n")
-	
+
 	for _, r := range t.rows {
 
 		b.WriteString(fmt.Sprintf("| %s ", r.GitHubRepo))

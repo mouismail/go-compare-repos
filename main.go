@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
+	"migrator/pkg/readme"
 	"os"
 	"strconv"
 
 	"migrator/cmd"
 	"migrator/github"
 	"migrator/gitlab"
-	"migrator/pkg/readme"
 	"migrator/pkg/stats"
 )
 
@@ -47,25 +47,8 @@ func main() {
 		}
 	}
 	readme.Update("stats.md", t.String())
-	// updateStatus := readme.UpdateGitHubRepoFile([]byte(t.String()), "go-action-runner", "mouismail", "stats.md")
+	//updateStatus := readme.UpdateGitHubRepoFile([]byte(t.String()), "go-action-runner", "mouismail", "stats.md")
+	//fmt.Println(updateStatus)
 	// fmt.Printf("The migration status has been updated on Stats file successfully with status %s.", updateStatus)
 	fmt.Printf("The migration status has been updated on Stats file successfully")
 }
-
-//
-//func compareGitHubToGitLabRepos(githubRepo string, gitlabRepos []gitlab.Repo, t *stats.Table, org, projectID string) {
-//	for _, gitLabRepo := range gitlabRepos {
-//		if gitLabRepo.Name == githubRepo {
-//			t.AddRow([]string{githubRepo, ":white_check_mark:", org, ":white_check_mark:", projectID})
-//		}
-//	}
-//	t.AddRow([]string{githubRepo, ":x:", org, ":white_check_mark:", projectID})
-//}
-//
-//func compareGitLabToGitHubRepos(gitLabRepo string, githubRepos []github.Repo, t *stats.Table, org, projectID string) {
-//	for _, githubRepo := range githubRepos {
-//		if githubRepo.Name != gitLabRepo {
-//			t.AddRow([]string{gitLabRepo, ":x:", org, ":white_check_mark:", projectID})
-//		}
-//	}
-//}

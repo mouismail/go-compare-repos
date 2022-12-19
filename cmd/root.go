@@ -7,7 +7,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var cfgFile string
 var rootCmd = &cobra.Command{
 	Use:   "migrator",
 	Short: "Migrator is Repositories Migration Stats Tool.",
