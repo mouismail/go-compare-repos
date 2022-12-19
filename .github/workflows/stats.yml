@@ -1,7 +1,11 @@
 name: "MigrationStats"
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   build-and-run:

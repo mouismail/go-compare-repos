@@ -6,16 +6,16 @@ import (
 )
 
 type Table struct {
-	headers []string
-	rows    []TableRow
+	headers []string   `json:"headers"`
+	rows    []TableRow `json:"rows"`
 }
 
 type TableRow struct {
-	GitHubRepo      string
-	GitHubOrg       string
-	GitLabRepo      string
-	GitLabProjectId string
-	IsExists        bool
+	GitHubRepo      string `json:"gitHubRepo"`
+	GitHubOrg       string `json:"gitHubOrg"`
+	GitLabRepo      string `json:"gitLabRepo"`
+	GitLabProjectId string `json:"gitLabProjectId"`
+	IsExists        bool   `json:"isExists"`
 }
 
 func NewRow(repo, org, projectId string, isExist bool) *TableRow {
