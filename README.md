@@ -1,12 +1,9 @@
 # Migration to GitHub Repos count
 
 [![GitHub go.mod Go version of a Go module](https://img.shields.io/github/go-mod/go-version/gomods/athens.svg?style=for-the-badge&logo=go)](https://github.com/gomods/athens)
-[![GitHub license](https://img.shields.io/github/license/mouismail/go-action-runner.svg?style=for-the-badge)](https://github.com/mouismail/go-action-runner/blob/main/LICENSE)
-![GitHub tag checks state](https://img.shields.io/github/checks-status/mouismail/go-compare-repos/main?label=Github%20tag&logo=github&style=for-the-badge)
+[![GitHub license](https://img.shields.io/github/license/mouismail/go-compare-repos.svg?style=for-the-badge)](https://github.com/mouismail/go-compare-repos/blob/main/LICENSE.md)
 
-[//]: # ([![Latest release]&#40;https://badgen.net/github/release/mouismail/go-action-runner?style=for-the-badge&logo=appveyor&#41;]&#40;https://github.com/mouismail/go-action-runner/releases&#41;)
-[//]: # (![GitHub tag checks state]&#40;https://img.shields.io/github/checks-status/mouismail/go-compare-repos/main?label=release&logo=github&style=for-the-badge&#41;)
-
+[![Latest release](https://badgen.net/github/release/mouismail/go-compare-repos?style=for-the-badge&logo=appveyor)](https://github.com/mouismail/go-compare-repos/releases)
 
 
 ## Description
