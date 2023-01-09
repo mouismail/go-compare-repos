@@ -10,8 +10,6 @@
 
 </div>
 
-
-
 ## Description
 
 This repository contains a GitHub Action that compares repositories in GitHub with repositories in GitLab or Bitbucket.
