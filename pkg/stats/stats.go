@@ -11,11 +11,11 @@ type Table struct {
 }
 
 type TableRow struct {
-	GitHubRepo      string
-	GitHubOrg       string
-	GitLabRepo      string
-	GitLabProjectId string
-	IsExists        bool
+	GitHubRepo      string `json:"gitHubRepo"`
+	GitHubOrg       string `json:"gitHubOrg"`
+	GitLabRepo      string `json:"gitLabRepo"`
+	GitLabProjectId string `json:"gitLabProjectId"`
+	IsExists        bool   `json:"isExists"`
 }
 
 func NewRow(repo, org, projectId string, isExist bool) *TableRow {
@@ -39,14 +39,6 @@ func (t *Table) AddRow(row TableRow) {
 	t.rows = append(t.rows, row)
 }
 
-func (r *TableRow) AddRowContent(repo, org, projectId string, isExist bool) {
-	r.GitHubRepo = repo
-	r.GitLabRepo = repo
-	r.GitHubOrg = org
-	r.GitLabProjectId = projectId
-	r.IsExists = isExist
-}
-
 func (t *Table) String() string {
 	var b bytes.Buffer
 
@@ -59,7 +51,7 @@ func (t *Table) String() string {
 		b.WriteString("| :---: ")
 	}
 	b.WriteString("|\n")
-	
+
 	for _, r := range t.rows {
 
 		b.WriteString(fmt.Sprintf("| %s ", r.GitHubRepo))

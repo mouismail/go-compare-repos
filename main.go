@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"migrator/pkg/readme"
 	"os"
 	"strconv"
 
 	"migrator/cmd"
 	"migrator/github"
 	"migrator/gitlab"
-	"migrator/pkg/readme"
 	"migrator/pkg/stats"
 )
 
@@ -21,12 +22,12 @@ func main() {
 
 	githubRepos, err := github.GetRepos(org)
 	if err != nil {
-		fmt.Errorf("error occured during fetching GitHub Repos, %s", err)
+		log.Fatalf("error occured during fetching GitHub Repos, %s", err)
 	}
 
 	gitlabRepos, err := gitlab.GetRepos(intProjectID)
 	if err != nil {
-		fmt.Errorf("error occured during fetching GitLab Repos, %s", err)
+		log.Fatalf("error occured during fetching GitLab Repos, %s", err)
 	}
 
 	t := stats.NewTable([]string{"Repo Name", "GitHub Org", "GitLab Project", "GitLab Status", "GitHub Status", "Migrated"})
@@ -46,26 +47,13 @@ func main() {
 			t.AddRow(*r)
 		}
 	}
-	readme.Update("stats.md", t.String())
-	// updateStatus := readme.UpdateGitHubRepoFile([]byte(t.String()), "go-action-runner", "mouismail", "stats.md")
+
+	err = readme.Update("stats.md", t.String())
+	if err != nil {
+		log.Fatalf("Error occurred during updating stats.md file %s", err)
+	}
+	//updateStatus := readme.UpdateGitHubRepoFile([]byte(t.String()), "go-action-runner", "mouismail", "stats.md")
+	//fmt.Println(updateStatus)
 	// fmt.Printf("The migration status has been updated on Stats file successfully with status %s.", updateStatus)
 	fmt.Printf("The migration status has been updated on Stats file successfully")
 }
-
-//
-//func compareGitHubToGitLabRepos(githubRepo string, gitlabRepos []gitlab.Repo, t *stats.Table, org, projectID string) {
-//	for _, gitLabRepo := range gitlabRepos {
-//		if gitLabRepo.Name == githubRepo {
-//			t.AddRow([]string{githubRepo, ":white_check_mark:", org, ":white_check_mark:", projectID})
-//		}
-//	}
-//	t.AddRow([]string{githubRepo, ":x:", org, ":white_check_mark:", projectID})
-//}
-//
-//func compareGitLabToGitHubRepos(gitLabRepo string, githubRepos []github.Repo, t *stats.Table, org, projectID string) {
-//	for _, githubRepo := range githubRepos {
-//		if githubRepo.Name != gitLabRepo {
-//			t.AddRow([]string{gitLabRepo, ":x:", org, ":white_check_mark:", projectID})
-//		}
-//	}
-//}
