@@ -47,6 +47,7 @@ func main() {
 			t.AddRow(*r)
 		}
 	}
+
 	err = readme.Update("stats.md", t.String())
 	if err != nil {
 		log.Fatalf("Error occurred during updating stats.md file %s", err)

@@ -6,8 +6,8 @@ import (
 )
 
 type Table struct {
-	headers []string   `json:"headers"`
-	rows    []TableRow `json:"rows"`
+	headers []string
+	rows    []TableRow
 }
 
 type TableRow struct {
@@ -38,14 +38,6 @@ func NewTable(headers []string) *Table {
 func (t *Table) AddRow(row TableRow) {
 	t.rows = append(t.rows, row)
 }
-
-//func (r *TableRow) AddRowContent(repo, org, projectId string, isExist bool) {
-//	r.GitHubRepo = repo
-//	r.GitLabRepo = repo
-//	r.GitHubOrg = org
-//	r.GitLabProjectId = projectId
-//	r.IsExists = isExist
-//}
 
 func (t *Table) String() string {
 	var b bytes.Buffer
