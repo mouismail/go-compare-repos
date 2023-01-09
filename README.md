@@ -1,10 +1,14 @@
-# Migration to GitHub Repos count
+<div align="center">
 
-[![GitHub go.mod Go version of a Go module](https://img.shields.io/github/go-mod/go-version/gomods/athens.svg?style=for-the-badge&logo=go)](https://github.com/gomods/athens)
-[![GitHub license](https://img.shields.io/github/license/mouismail/go-compare-repos.svg?style=for-the-badge)](https://github.com/mouismail/go-compare-repos/blob/main/LICENSE.md)
+# Migration Stats 
 
-[![Latest release](https://badgen.net/github/release/mouismail/go-compare-repos?style=for-the-badge&logo=appveyor)](https://github.com/mouismail/go-compare-repos/releases)
+[![GitHub go.mod Go version of a Go module](https://img.shields.io/github/go-mod/go-version/gomods/athens.svg?style=flat-square&logo=go)](https://github.com/gomods/athens)
+[![GitHub license](https://img.shields.io/github/license/mouismail/go-compare-repos.svg?style=flat-square)](https://github.com/mouismail/go-compare-repos/blob/main/LICENSE.md)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/mouismail/go-compare-repos/codeql.yml?label=CodeQl&logo=github&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/mouismail/go-compare-repos/cronjob.yml?label=Stats&logo=github&style=flat-square)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/mouismail/go-compare-repos?logo=github&style=flat-square)
 
+</div>
 
 ## Description
 
